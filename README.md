@@ -1,6 +1,10 @@
 ﻿[Java in Deepat GitHub](https://github.com/azatsatklichov/java-in-deep.git) 
 
-This project will be enhanced with examples based on below categories. 
+This project will be enhanced with examples based on below categories.
+
+## Setup
+Simple Java project, just note that all-folders are source folders in case you use Eclipse.    
+ 
  
 
 # Algorithmic Solutions 
