@@ -1,6 +1,6 @@
 ﻿[Java in Deep at GitHub](https://github.com/azatsatklichov/java-in-deep.git) 
 
-This project will be enhanced with examples based on below categories.
+This project will keep enhancing with examples based on below categories.
 
 ## Setup
 No need special setup, project is a simple Java project. Just note that all-folders containing Java code are 'source folders' in case you use Eclipse.    
