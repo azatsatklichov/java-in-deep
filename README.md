@@ -3,8 +3,7 @@
 This project will be enhanced with examples based on below categories.
 
 ## Setup
-Simple Java project, just note that all-folders are source folders in case you use Eclipse.    
- 
+No need special setup, project is a simple Java project. Just note that all-folders containing Java code are 'source folders' in case you use Eclipse.    
  
 
 # Algorithmic Solutions 
