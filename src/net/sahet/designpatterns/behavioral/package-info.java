@@ -16,25 +16,27 @@
  * blueprint, then Behavioral is the pattern of the relationship among objects.
  * 
  * <pre>
-	State  
+	State - Alter an object's behavior when its state changes  
 	
-	Mediator  
+	Mediator - Defines simplified communication between classes  
 	
-	Observer  
+	Observer - A way of notifying change to a number of classes  
 	
-	Memento  
+	Memento - Capture and restore an object's internal state  
 	
 	Iterator  
 	
-	Command  
+	Interpreter - A way to include language elements in a program
 	
-	Strategy  
+	Command - Encapsulate a command request as an object  
 	
-	Template 
+	Strategy - Encapsulates an algorithm inside a class  
 	
-	Visitor 
+	Template - Defer the exact steps of an algorithm to a subclass 
 	
-	Chain of Responsibility  
+	Visitor - Defines a new operation to a class without change 
+	
+	Chain of Responsibility   - A way of passing a request between a chain of objects
 	
  * </pre>
  */
