@@ -1,6 +1,6 @@
 package net.sahet.designpatterns.creational.singleton;
 
-public class Demo {
+public class SingletonDemo {
 	public static void main(String[] args) {
 		System.out.println("	Non thread safe Singleton ");
 		ThreadNonSafeSingleton singleton1 = ThreadNonSafeSingleton.getInstance();
@@ -22,5 +22,7 @@ public class Demo {
 
 		singleton3 = EnumSingleton.INSTANCE;
 		System.out.println(singleton3);
+		
+		System.out.println("\n	Java Singleton build-in classes ");
 	}
 }

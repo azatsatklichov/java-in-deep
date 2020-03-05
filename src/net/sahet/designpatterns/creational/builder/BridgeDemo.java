@@ -1,6 +1,6 @@
 package net.sahet.designpatterns.creational.builder;
 
-public class Demo {
+public class BridgeDemo {
 	public static void main(String[] args) {
 		System.out.println("	Telescoping constructor pattern ");
 		/**
