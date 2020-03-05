@@ -26,6 +26,8 @@ package net.sahet.designpatterns.creational.builder;
  * 
  * - Builder pattern is also verbose like  telescoping  constructor pattern,  
  * better use it if you have more parameters e.g. more than 5.
+ * 
+ * - Immutable (sometimes good, sometimes not ;) )
  *
  * </pre>
  */
@@ -38,6 +40,10 @@ public class UserProfileC {
 	private final String phone;
 	private final String hobbies;
 
+	/**
+	 * You can make more null-safe this, via Java 8 Optional
+	 *
+	 */
 	public static class Builder {
 		// required fields (final)
 		private final String name;

@@ -22,7 +22,27 @@ public class SingletonDemo {
 
 		singleton3 = EnumSingleton.INSTANCE;
 		System.out.println(singleton3);
-		
+
 		System.out.println("\n	Java Singleton build-in classes ");
+		/**
+		 * Logger
+		 * 
+		 * Runtime
+		 * 
+		 * Spring Beans (by default singletons)
+		 * 
+		 * Graphic Managers
+		 * 
+		 * Calendar is not a Singleto, not confuse with getInstance()
+		 * 
+		 */
+		Runtime runtime1 = Runtime.getRuntime();
+		runtime1.gc();
+		System.out.println(runtime1);
+		Runtime runtime2 = Runtime.getRuntime();
+		System.out.println(runtime2);
+		if (runtime1 == runtime2) {
+			System.out.println("Indeed they are the same instance");
+		}
 	}
 }

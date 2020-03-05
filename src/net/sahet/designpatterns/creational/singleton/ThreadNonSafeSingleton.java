@@ -10,7 +10,11 @@ package net.sahet.designpatterns.creational.singleton;
  * 
  * + Works fine and provides single instance for Single-Threaded Model
  * 
+ * - Difficult to unit test
+ * 
  * - Non thread safe for multi-threaded app.
+ * 
+ * - Difficult to unit test
  * 
  * - Via reflection still you can create multiple instance of this class.
  * E.g. via invoking the private constructor reflectively  with help of 

@@ -46,7 +46,22 @@ public class BridgeDemo {
 		 */
 		UserProfileC.Builder builder = new UserProfileC.Builder("Aziza", "Nizamova");
 		UserProfileC user3 = builder.age(63).address("Navoi 47, Tashkent").hobbies("Singing").build();
+
 		System.out.println(user3);
+		System.out.println("\n	Java Bridge build-in classes ");
+		/**
+		 * StringBuilder
+		 * 
+		 * DocumentBuilder (xml)
+		 * 
+		 * Locale.Builder
+		 * 
+		 */
+		StringBuilder sb = new StringBuilder();
+		sb.append("Gazma dusersin, yakma bisersin. ");
+		sb.append("Ertir has gozel bolar ");
+		sb.append("Sabr sony sary altyn. ");
+		System.out.println(sb);
 
 	}
 }
