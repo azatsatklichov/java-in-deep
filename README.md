@@ -3,7 +3,8 @@
 This project will keep enhancing with examples based on below categories.
 
 ## Setup
-No need special setup, project is a simple Java Maven project. Just note that all-folders containing Java code are 'source folders' in case you use Eclipse.    
+No needs special setup, project is a simple Java project with  JUnit5 library. 
+Just note that all-folders containing Java code are 'source folders' in case you use Eclipse.    
  
 
 ## Algorithmic Solutions 
