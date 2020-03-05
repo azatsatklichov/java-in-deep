@@ -48,7 +48,7 @@ public class BridgeDemo {
 		UserProfileC user3 = builder.age(63).address("Navoi 47, Tashkent").hobbies("Singing").build();
 
 		System.out.println(user3);
-		System.out.println("\n	Java Bridge build-in classes ");
+		System.out.println("\n	Bridge Java build-in classes ");
 		/**
 		 * StringBuilder
 		 * 

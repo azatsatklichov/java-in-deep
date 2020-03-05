@@ -23,7 +23,7 @@ class Jest implements Cloneable {
 
 	public static void main(String args[]) {
 
-		System.out.println("\n	Java Prototype build-in classes ");
+		System.out.println("\n	Prototype Java build-in classes ");
 		/**
 		 * Object#clone() - provides shallow copy
 		 * 

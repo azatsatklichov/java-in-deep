@@ -6,7 +6,7 @@ import java.util.Locale;
 public class FactoryMethodDemo {
 	public static void main(String[] args) {
 
-		System.out.println("\n	Factory method build-in classes ");
+		System.out.println("\n	Factory method Java build-in classes ");
 		/**
 		 * Calendar
 		 * 

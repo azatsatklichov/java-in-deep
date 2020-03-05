@@ -23,7 +23,7 @@ public class SingletonDemo {
 		singleton3 = EnumSingleton.INSTANCE;
 		System.out.println(singleton3);
 
-		System.out.println("\n	Java Singleton build-in classes ");
+		System.out.println("\n	Singleton Java build-in classes ");
 		/**
 		 * Logger
 		 * 

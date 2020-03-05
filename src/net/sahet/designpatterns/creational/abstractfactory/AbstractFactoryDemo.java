@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
 public class AbstractFactoryDemo {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 
-		System.out.println("\n	Abstract factory build-in classes ");
+		System.out.println("\n	Abstract factory Java build-in classes ");
 		/**
 		 * Abstract factory is a Factory of factories
 		 * 
