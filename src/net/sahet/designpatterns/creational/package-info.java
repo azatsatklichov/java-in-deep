@@ -17,9 +17,10 @@
 	
 	Prototype
 	
-	Factory Method
+	Factory Method 
 	
 	Abstract Factory
+	
  * </pre>
  */
 package net.sahet.designpatterns.creational;

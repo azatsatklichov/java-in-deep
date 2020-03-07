@@ -14,6 +14,19 @@ import java.nio.charset.StandardCharsets;
 
 public class DecoratorDemo {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
+		System.out.println("\n	Decorator design pattern example ");
+		IceCream iceCream = new ClassicIceCream();
+		System.out.println(iceCream.iceCream());
+
+		IceCream chockoladeIceCream = new ChocolateIceCreamDecorator(iceCream);
+		System.out.println(chockoladeIceCream.iceCream());
+
+		IceCream melonIceCream = new MelonIceCreamDecorator(iceCream);
+		System.out.println(melonIceCream.iceCream());
+
+		IceCream chockoladeandMelonIceCream = new ChocolateIceCreamDecorator(
+				new MelonIceCreamDecorator(new ClassicIceCream()));
+		System.out.println(chockoladeandMelonIceCream.iceCream());
 
 		System.out.println("\n	Decorator Java build-in classes ");
 		/**
@@ -32,16 +45,18 @@ public class DecoratorDemo {
 
 			br.lines().forEach(line -> System.out.println(line));
 
-		} 
-		
+		}
+
 		// or another example
 		File f = new File("out.txt");
 		f.createNewFile();
 
-		try (OutputStream os = new FileOutputStream(f)) {;
-		DataOutputStream dos = new DataOutputStream(os);
-		dos.writeChars("bildirsoy");
-		};
+		try (OutputStream os = new FileOutputStream(f)) {
+			;
+			DataOutputStream dos = new DataOutputStream(os);
+			dos.writeChars("bildirsoy");
+		}
+		;
 
 	}
 }

@@ -11,6 +11,11 @@ Examples which we are sometimes not aware of what is going under the under-hood,
 
 ## OO Analysis and  Design Patterns
 GoF Design Patterns and some principles of OOA and OOD like SOLID, Defensive Programming etc .. 
+Some examples are re-written, re-designed, influenced or adapted from internet, or Bryan Hansen's design patterns courses on PluralSight:    
+[Structural](https://app.pluralsight.com/library/courses/design-patterns-java-structural/table-of-contents), and
+[Behavioral](https://app.pluralsight.com/library/courses/design-patterns-java-behavioral/table-of-contents) 
+or Head First Design Patterns.
+
 
 ## more ...
 

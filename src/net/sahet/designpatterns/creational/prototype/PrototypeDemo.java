@@ -1,13 +1,39 @@
 package net.sahet.designpatterns.creational.prototype;
 
-
+/**
+ * Client Class
+ */
 public class PrototypeDemo {
-	public static void main(String[] args) throws CloneNotSupportedException {
 
+	private PrototypeFactory prototype;
+
+	public PrototypeDemo(PrototypeFactory prototype) {
+		this.prototype = prototype;
 	}
 
+	public PrototypeFactory makeCopy() throws CloneNotSupportedException {
+		return this.prototype.clone();
+	}
+
+	public static void main(String args[]) {
+		System.out.println("\n	Prototype Pattern example");
+		try {
+			PrototypeFactory prototype = null;
+			int num = 1000;
+			PrototypeFactory prot = new PrototypeImpl(1000);
+			PrototypeDemo cm = new PrototypeDemo(prot);
+			for (int i = 0; i < 10; i++) {
+				prototype = cm.makeCopy();
+				prototype.prototypeFactory(i * num);
+				prototype.printValue();
+			}
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
+//simple Java example
 class Jest implements Cloneable {
 	int id;
 	String name;

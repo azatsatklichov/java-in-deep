@@ -6,6 +6,10 @@ import java.lang.reflect.Method;
 
 public class ProxyDemo {
 	public static void main(String[] args) throws IOException {
+		
+		System.out.println("\n	Proxy design pattern example ");
+		
+//		/.
 
 		System.out.println("\n	Proxy Java build-in classes ");
 		/**

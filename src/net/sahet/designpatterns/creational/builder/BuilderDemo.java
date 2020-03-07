@@ -1,6 +1,6 @@
 package net.sahet.designpatterns.creational.builder;
 
-public class BridgeDemo {
+public class BuilderDemo {
 	public static void main(String[] args) {
 		System.out.println("	Telescoping constructor pattern ");
 		/**
@@ -34,7 +34,7 @@ public class BridgeDemo {
 		user2.setHobbies("Aydym aytmak");
 		System.out.println(user2);
 
-		System.out.println("\n	Builder Design Pattern ");
+		System.out.println("\n	Builder Design Pattern example ");
 		/**
 		 * Provides both - Safety and Readability
 		 * 

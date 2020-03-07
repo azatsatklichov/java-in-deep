@@ -3,6 +3,7 @@ package net.sahet.designpatterns.creational.abstractfactory;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,11 +15,27 @@ import org.xml.sax.SAXException;
 public class AbstractFactoryDemo {
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 
+		System.out.println("\n	Abstract factory pattern exaple ");
+
+		List<String> redApples = GardenFactory.getGardenFactory(GardenType.APPLE).getFruits(FruitColorType.RED);
+		System.out.println(redApples);
+
+		List<String> mixApples = GardenFactory.getGardenFactory(GardenType.APPLE).getFruits(FruitColorType.MIX);
+		System.out.println(mixApples);
+
+		List<String> redGrapes = GardenFactory.getGardenFactory(GardenType.GRAPE).getFruits(FruitColorType.RED);
+		System.out.println(redGrapes);
+
+		List<String> mixGrapes = GardenFactory.getGardenFactory(GardenType.GRAPE).getFruits(FruitColorType.MIX);
+		System.out.println(mixGrapes);
+
 		System.out.println("\n	Abstract factory Java build-in classes ");
 		/**
 		 * Abstract factory is a Factory of factories
 		 * 
-		 * DocumentBuilder
+		 * DocumentBuilderFactory#newInstance()
+		 * 
+		 * TransformerFactory#newInstance()
 		 * 
 		 * Frameworks (heavily use it)
 		 * 

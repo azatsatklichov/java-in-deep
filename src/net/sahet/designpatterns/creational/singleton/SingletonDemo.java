@@ -25,9 +25,13 @@ public class SingletonDemo {
 
 		System.out.println("\n	Singleton Java build-in classes ");
 		/**
+		 * 
+		 * java.awt.Desktop#getDesktop()
+		 * 
+		 * java.lang.Runtime#getRuntime()
+		 * 
 		 * Logger
 		 * 
-		 * Runtime
 		 * 
 		 * Spring Beans (by default singletons)
 		 * 

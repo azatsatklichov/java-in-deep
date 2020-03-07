@@ -4,8 +4,14 @@ import java.io.IOException;
 
 public class FlyweightDemo {
 	public static void main(String[] args) throws IOException {
+		System.out.println("\n	Flyweight design pattern example ");
+		Registry registry = new Registry();
 
-		System.out.println("\n	Flyweight Java build-in classes ");
+		getRegistry(registry);
+		registry.process();
+		System.out.println("\nWOW Power of Flyweight: " + registry.report());
+
+		System.out.println("\n\n	Flyweight Java build-in classes ");
 		/**
 		 * java.lang.String
 		 * 
@@ -24,5 +30,21 @@ public class FlyweightDemo {
 		Integer i3 = Integer.valueOf(15);
 		System.out.println(i1 == i2);
 		System.out.println(i1 == i3);
+	}
+
+	private static void getRegistry(Registry registry) {
+		registry.takeOrder("Toshiba", 1323);
+		registry.takeOrder("Sony", 2323);
+		registry.takeOrder("Samsung", 2124);
+		registry.takeOrder("Samsung", 1144);
+		registry.takeOrder("Sony", 3323);
+		registry.takeOrder("Sony", 5323);
+		registry.takeOrder("Toshiba", 2323);
+		registry.takeOrder("Sadko", 112);
+		registry.takeOrder("xITee", 675);
+		registry.takeOrder("Sadko", 142);
+		registry.takeOrder("Sony", 7323);
+		registry.takeOrder("Toshiba", 1313);
+		registry.takeOrder("Toshiba", 1343);
 	}
 }
