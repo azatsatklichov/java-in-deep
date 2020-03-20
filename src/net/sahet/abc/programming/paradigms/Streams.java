@@ -70,6 +70,9 @@ public class Streams {
 
         Integer max = ints.stream().max(Comparator.comparing(item -> item)).get();
         System.out.println(max);
+        
+        
+        
 
     }
 

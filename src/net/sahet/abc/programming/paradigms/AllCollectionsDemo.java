@@ -207,6 +207,19 @@ class Car {
 	public String toString() {
 		return "Car [brand=" + brand + ", numberPlate=" + numberPlate + ", noOfDoors=" + noOfDoors + "]";
 	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public String getNumberPlate() {
+		return numberPlate;
+	}
+
+	public int getNoOfDoors() {
+		return noOfDoors;
+	}
+
 }
 
 class SortingLists {
@@ -276,6 +289,22 @@ class SortingLists {
 		Collections.sort(list, carNumberPlatComparatorLambda);
 		System.out.println(list);
 		Collections.sort(list, carNoOfDoorsComparatorLambda);
+		System.out.println(list);
+
+		System.out.println();
+		System.out.println("Chaining Comparator via Java 8");
+		list = new ArrayList<>(
+				Arrays.asList(new Car("Citroen C1", "ABC 164521", 5), new Car("Volvo V40", "XYZ 201845", 5),
+						new Car("Citroen C1", "ABC 164521", 4), new Car("Dodge", "KLM 845990", 2), new Car("Dodge Ram", "KLM 845990", 3)));
+
+		// Java 8 Comparator
+		Comparator<Car> comparatorByBrand = Comparator.comparing(Car::getBrand);
+		Collections.sort(list, comparatorByBrand);
+		System.out.println(list);
+		// chained Comparator (in CGI 2013 tried by old way)
+		Comparator<Car> comparatorByBrandAndDoors = Comparator.comparing(Car::getBrand)
+				.thenComparing(Car::getNoOfDoors);
+		Collections.sort(list, comparatorByBrandAndDoors);
 		System.out.println(list);
 
 	}
