@@ -1,6 +1,9 @@
 package net.sahet.programming.paradigms;
 
-public class KhTest {
+public class EqualsTest {
+
+	Integer i;
+
 
 	public static void main(String[] args) {
 		String s = "abc";
@@ -14,7 +17,9 @@ public class KhTest {
 		System.out.println(s1 == s2);
 		System.out.println(s1.equals(s2));
 		System.out.println(s3 == s4);
+		System.out.println(s3.equals(s4));
 		System.out.println(s1 == s3);
+		System.out.println(s1.equals(s3));
 	}
 
 	public static void met(String s) {

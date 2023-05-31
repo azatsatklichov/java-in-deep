@@ -45,6 +45,13 @@ public class ReverseTestInfr {
 
 		return arr;
 	}
+	
+	private static void swap(char[] arr, int len, int i) {
+		int j = len - i - 1;
+		char tmp = arr[j];
+		arr[j] = arr[i];
+		arr[i] = tmp;
+	}
 
 	/**
 	 * in place
@@ -63,12 +70,7 @@ public class ReverseTestInfr {
 		return arr;
 	}
 
-	private static void swap(char[] arr, int len, int i) {
-		int j = len - i - 1;
-		char tmp = arr[j];
-		arr[j] = arr[i];
-		arr[i] = tmp;
-	}
+	
 
 	public static void main(String a[]) {
 

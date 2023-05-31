@@ -1,12 +1,6 @@
 package net.sahet.programming.paradigms;
 
-public class InheritenceOnFields {
 
-	public static void main(String[] args) {
-		new Child("X-CertiCn");
-		System.out.println("");
-	}
-}
 
 class Parent {
 	protected String msg = "I am from Parent";
@@ -16,7 +10,7 @@ class Parent {
 	}
 
 	public void foo(String input) {
-		System.out.println("Parent" + msg + input);
+		System.out.println("# " + msg + input);
 	}
 
 }
@@ -28,5 +22,14 @@ class Child extends Parent {
 	public Child(String input) {
 		super(input);
 		foo(input);
+	}
+	
+	 
+}
+
+public class InheritenceOnFields {
+	public static void main(String[] args) {
+		new Child("X-CertiCn");
+		System.out.println("");
 	}
 }
