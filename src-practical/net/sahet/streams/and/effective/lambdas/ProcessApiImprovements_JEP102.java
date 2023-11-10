@@ -1,4 +1,4 @@
-package net.sahet.streams.and.effectivejava.lambdas;
+package net.sahet.streams.and.effective.lambdas;
 
 import java.awt.List;
 import java.io.IOException;

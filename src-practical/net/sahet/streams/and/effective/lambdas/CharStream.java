@@ -1,4 +1,4 @@
-package net.sahet.streams.and.effectivejava.lambdas;
+package net.sahet.streams.and.effective.lambdas;
 
 // Refrain from using streams to process char values (Page 206)
 public class CharStream {

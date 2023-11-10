@@ -1,4 +1,4 @@
-package net.sahet.streams.and.effectivejava.lambdas;
+package net.sahet.streams.and.effective.lambdas;
 
 public class MeaningOfThis {
 

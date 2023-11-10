@@ -1,4 +1,4 @@
-package net.sahet.streams.and.effectivejava.lambdas;
+package net.sahet.streams.and.effective.lambdas;
 
 /**
  * Prior to java 8, interfaces can have following type of variables/methods.

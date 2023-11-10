@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
-import net.sahet.streams.and.effectivejava.lambdas.FunctionalInterfaces;
+import net.sahet.streams.and.effective.lambdas.FunctionalInterfaces;
 
 public class FunctionsDemo {
 	/**

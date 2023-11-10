@@ -1,4 +1,4 @@
-package net.sahet.streams.and.effectivejava.lambdas;
+package net.sahet.streams.and.effective.lambdas;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
