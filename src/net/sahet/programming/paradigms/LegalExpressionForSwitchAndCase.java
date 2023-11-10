@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 /**
  * Legal Expressions for switch and case The general form of the switch

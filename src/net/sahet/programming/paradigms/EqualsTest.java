@@ -2,28 +2,31 @@ package net.sahet.programming.paradigms;
 
 public class EqualsTest {
 
-	Integer i;
-
-
 	public static void main(String[] args) {
-		String s = "abc";
-		met(s);
-		System.out.println(s);
+		String s1 = "mary";//in pool
+		String s2 = "mary"; //in pool
+		if (s1 == s2)
+			System.out.println(".TRUE");
+		else
+			System.out.println(".FALSE");
 
-		String s1 = "abc";
-		String s2 = "abc";
-		String s3 = new String("abc");
-		String s4 = new String("abc");
-		System.out.println(s1 == s2);
-		System.out.println(s1.equals(s2));
-		System.out.println(s3 == s4);
-		System.out.println(s3.equals(s4));
-		System.out.println(s1 == s3);
-		System.out.println(s1.equals(s3));
+		if (s1.equals(s2))
+			System.out.println("..TRUE");
+		else
+			System.out.println("..FALSE");
+
+		String s3 = new String("mary");//in heap
+		String s4 = new String("mary");//in heap
+
+		if (s3 == s4)
+			System.out.println("...TRUE");
+		else
+			System.out.println("...FALSE");
+
+		if (s3.equals(s4))
+			System.out.println("....TRUE");
+		else
+			System.out.println("....FALSE");
+
 	}
-
-	public static void met(String s) {
-		s = "defs";
-	}
-
 }

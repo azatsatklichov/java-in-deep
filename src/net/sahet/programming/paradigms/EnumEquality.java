@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 /**
  * Once you've declared an enum, it's not expandable. At runtime, there's no way

@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 public class EqualityTestIndra {
 	public static void main(String[] args) {

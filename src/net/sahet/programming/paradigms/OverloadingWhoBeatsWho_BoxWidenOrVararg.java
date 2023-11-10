@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 /**
  * Because, once again, even though each invocation will require some sort of

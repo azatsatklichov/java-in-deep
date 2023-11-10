@@ -1,5 +1,6 @@
 package net.sahet.programming.paradigms;
 
+
 public interface Java8Interface {
 
     default void defaultMethod() {

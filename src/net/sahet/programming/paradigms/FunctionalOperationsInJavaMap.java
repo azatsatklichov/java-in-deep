@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

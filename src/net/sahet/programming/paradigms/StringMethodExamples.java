@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 class RegionMatchesDemo {
 	public static void main(String[] args) {

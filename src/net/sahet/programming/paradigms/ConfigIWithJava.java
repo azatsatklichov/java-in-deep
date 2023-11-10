@@ -1,4 +1,4 @@
-package net.sahet.practical.java;
+package net.sahet.programming.paradigms;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

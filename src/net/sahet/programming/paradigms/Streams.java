@@ -1,5 +1,6 @@
 package net.sahet.programming.paradigms;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -70,9 +71,6 @@ public class Streams {
 
         Integer max = ints.stream().max(Comparator.comparing(item -> item)).get();
         System.out.println(max);
-        
-        
-        
 
     }
 

@@ -13,9 +13,9 @@ public class Sorting {
     // 1
     List<Apple> inventory = new ArrayList<>();
     inventory.addAll(Arrays.asList(
-        new Apple(80, Color.GREEN),
-        new Apple(155, Color.GREEN),
-        new Apple(120, Color.RED)
+        new Apple(80, net.sahet.programming.paradigms.GREEN),
+        new Apple(155, net.sahet.programming.paradigms.GREEN),
+        new Apple(120, net.sahet.programming.paradigms.RED)
     ));
 
     // [Apple{color=GREEN, weight=80}, Apple{color=RED, weight=120}, Apple{color=GREEN, weight=155}]
@@ -23,7 +23,7 @@ public class Sorting {
     System.out.println(inventory);
 
     // reshuffling things a little
-    inventory.set(1, new Apple(30, Color.GREEN));
+    inventory.set(1, new Apple(30, net.sahet.programming.paradigms.GREEN));
 
     // 2
     // [Apple{color=GREEN, weight=30}, Apple{color=GREEN, weight=80}, Apple{color=GREEN, weight=155}]
@@ -37,7 +37,7 @@ public class Sorting {
     System.out.println(inventory);
 
     // reshuffling things a little
-    inventory.set(1, new Apple(20, Color.RED));
+    inventory.set(1, new Apple(20, net.sahet.programming.paradigms.RED));
 
     // 3
     // [Apple{color=RED, weight=20}, Apple{color=GREEN, weight=30}, Apple{color=GREEN, weight=155}]
@@ -45,7 +45,7 @@ public class Sorting {
     System.out.println(inventory);
 
     // reshuffling things a little
-    inventory.set(1, new Apple(10, Color.RED));
+    inventory.set(1, new Apple(10, net.sahet.programming.paradigms.RED));
 
     // 4
     // [Apple{color=RED, weight=10}, Apple{color=RED, weight=20}, Apple{color=GREEN, weight=155}]
