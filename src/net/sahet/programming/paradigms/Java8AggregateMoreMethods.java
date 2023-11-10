@@ -1,5 +1,6 @@
 package net.sahet.programming.paradigms;
 
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ public class Java8AggregateMoreMethods {
     For example, in Optional, a map operation would return Optional<String> type while 
     flatMap would return String type.
     
-    So after mapping, one needs to unwrap (read “flatten”) the object to retrieve the value 
+    So after mapping, one needs to unwrap (read ï¿½flattenï¿½) the object to retrieve the value 
     whereas, after flat mapping, there is no such need as the object is already flattened. 
     The same concept is applied to mapping and flat mapping in Stream.
     
@@ -30,9 +31,9 @@ public class Java8AggregateMoreMethods {
     this function to all elements of a stream.
     
     The difference is that for the map, this function returns a value, but for flatMap, this 
-    function returns a stream. The flatMap operation “flattens” the streams into one.
+    function returns a stream. The flatMap operation ï¿½flattensï¿½ the streams into one.
     
-    Here's an example where we take a map of users' names and lists of phones and “flatten” 
+    Here's an example where we take a map of users' names and lists of phones and ï¿½flattenï¿½ 
     it down to a list of phones of all the users using flatMap:
      * </pre>
      */
@@ -75,11 +76,11 @@ class StreamPipelining {
  * Java developers has been the inadequate support for the date and time
  * manipulations required by ordinary developers.
  * 
- * The existing classes such as java.util.Date and SimpleDateFormatter aren’t
+ * The existing classes such as java.util.Date and SimpleDateFormatter arenï¿½t
  * thread-safe, leading to potential concurrency issues for users.
  * 
  * Poor API design is also a reality in the old Java Data API. Here's just a
- * quick example – years in java.util.Date start at 1900, months start at 1, and
+ * quick example ï¿½ years in java.util.Date start at 1900, months start at 1, and
  * days start at 0 which is not very intuitive.
  * 
  * These issues and several others have led to the popularity of third-party

@@ -1,4 +1,4 @@
-package package net.sahet.algorithmic.solutions;
+package net.sahet.algorithmic.solutions;
 
 import java.util.List;
 

@@ -1,5 +1,6 @@
 package net.sahet.programming.paradigms;
 
+
 import java.util.function.Predicate;
 
 public class FunctionalProgramming {

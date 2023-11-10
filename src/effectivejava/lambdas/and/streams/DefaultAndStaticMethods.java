@@ -9,7 +9,7 @@ public class DefaultAndStaticMethods {
 
 		System.out.println("ambiguity resolution\n");
 
-		Vehicle v1 = new Car();
+		Vehicle v1 = new Carr();
 		v1.print();
 		v1.print2();
 		v1.print3();
@@ -80,7 +80,7 @@ interface FourWheeler {
  * cases
  * 
  */
-class Car implements FourWheeler, Vehicle { // overrides who comes first:
+class Carr implements FourWheeler, Vehicle { // overrides who comes first:
 											// Vehicle, FourWheeler
 
 	// overrides
