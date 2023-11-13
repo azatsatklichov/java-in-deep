@@ -1,0 +1,16 @@
+https://en.wikipedia.org/wiki/Programming_paradigm
+https://www.freecodecamp.org/news/an-introduction-to-programming-paradigms/
+
+Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.
+
+Some paradigms are concerned mainly with implications for the execution model of the language, such as allowing side effects, or whether the sequence of operations is defined by the execution model. Other paradigms are concerned mainly with the way that code is organized, such as grouping a code into units along with the state that is modified by the code. Yet others are concerned mainly with the style of syntax and grammar.
+
+Some common programming paradigms are,[1][2][3]
+
+Imperative in which the programmer instructs the machine how to change its state,
+procedural which groups instructions into procedures,
+object-oriented which groups instructions with the part of the state they operate on,
+Declarative in which the programmer merely declares properties of the desired result, but not how to compute it
+functional in which the desired result is declared as the value of a series of function applications,
+logic in which the desired result is declared as the answer to a question about a system of facts and rules,
+reactive in which the desired result is declared with data streams and the propagation of change
