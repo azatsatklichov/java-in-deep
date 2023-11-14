@@ -17,10 +17,10 @@ class Kennel {
 		Beagle b3 = (Beagle) dog2;
 		// Beagle b4 = dog2; //compile error
 
-		// shu yokardaky sowalz, b2 u-n GEMALTO da soradylar
+		// shu yokardaky sowaly, b2 u-n GEMALTO da soradylar
 		// A and B are correct. However, at runtime, A will throw a ClassCastException
 		// because
-		// dog1 refers to a Dog object, which can�t necessarily do Beagle stuff.
+		// dog1 refers to a Dog object, which cannot necessarily do Beagle stuff.
 	}
 }
 

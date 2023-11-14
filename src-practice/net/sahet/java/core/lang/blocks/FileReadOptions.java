@@ -23,6 +23,7 @@ import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.io.Writer;
 import java.lang.StackWalker.StackFrame;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.ByteBuffer;
@@ -41,87 +42,279 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
+ * References
+ * 
  * https://www.baeldung.com/java-read-file
  * https://www.baeldung.com/reading-file-in-java
  * 
  * https://www.geeksforgeeks.org/ways-to-read-input-from-console-in-java/
+ * https://jenkov.com/tutorials/java-io/files.html
  * 
- * 
- * In this tutorial we'll explore different ways to read from a File in Java;
- * we√¢‚Ç¨‚Ñ¢ll make use of BufferedReader, Scanner, StreamTokenizer,
- * DataInputStream, SequenceInputStream and FileChannel.
- * 
- * i.a Hayirlisi, INWK happening, ....
- * 
- * i.a. either Solution Architect or Principal Software Engineer
- * 
- * 
+ * * i.a. either Solution Architect or Principal Software Engineer elh.skr
  *
  */
+
 public class FileReadOptions {
 
-	public static final String file = "C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io\\s.txt";
-	private static final String file1 = "C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io\\s1.txt";
-	private static final String file2 = "C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io\\s2.txt";
-	private static final String file3 = "C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io\\mgm.txt";
+	public static final String EXPECTED_DATA = "palin duzuw bolsyn\n";
+	public static final String EXPECTED_DATA2 = "palin duzuw bolsyn";
+
+	public static final String file = "src-practice/fileinclasspath2.txt";
 	private String dirPath = "C:\\workspace_ext\\java-in-deep\\src\\net\\sahet\\abc\\programming\\paradigms";
 
 	/**
-	 * Let's start with a simple way to read from file using BufferedReader; the
-	 * file itself contains
+	 * Reading a File from the Classpath - Using Standard Java
+	 */
+	@Test
+	public void whenReadUsing_Classpath_thenFileData() {
+
+		/**
+		 * /** You will get NPE here if file is not in this package. when using
+		 * getResourceAsStream method absolute path of the file is put to load file at
+		 * runtime
+		 */
+		try (InputStream inputStream = FileReadOptions.class.getResourceAsStream("fileinclasspath.txt")) {
+			String data = readFromInputStream(inputStream);
+			assertEquals(EXPECTED_DATA, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Reading a File from the Classpath - Using Standard Java
+	 * 
+	 * The same method is available on a ClassLoader instance as well:
+	 * 
+	 * The main difference is that when using the getResourceAsStream on a
+	 * ClassLoader instance, the path is treated as absolute starting from the root
+	 * of the classpath.
 	 * 
 	 * @throws IOException
 	 */
 	@Test
-	public void whenReadWithBufferedReader_thenCorrect() throws IOException {
-		String expected_value = "Hello world";
+	public void whenReadUsing_Classpath_thenFileData2() throws IOException {
+		/**
+		 * You will get NPE here if file is not on ROOT.
+		 * 
+		 * When used against a Class instance, the path could be relative to the
+		 * package, or an absolute path, which is hinted by the leading slash.
+		 */
+		ClassLoader classLoader = getClass().getClassLoader();// NPE
+		// ClassLoader classLoader = FileReadOptions.class.getClassLoader();
+		try (InputStream inputStream = classLoader.getResourceAsStream("fileinclasspath2.txt")) {
+			String data = readFromInputStream(inputStream);
+			assertEquals(EXPECTED_DATA, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Reading a File from the Classpath - Using the commons-io Library via
+	 * FileUtils
+	 */
+	@Test
+	public void whenReadUsing_CommonsIO_FileUtils_thenFileData() throws IOException {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("fileinclasspath2.txt").getFile());
+		String data = FileUtils.readFileToString(file, "UTF-8");
+		assertEquals(EXPECTED_DATA2, data);
+	}
+
+	/**
+	 * Reading a File from the Classpath - Using the commons-io Library - via
+	 * IOUtils class:
+	 */
+	@Test
+	public void whenReadUsing_CommonsIO_IOUtils_thenFileData() throws IOException {
+		FileInputStream fis = new FileInputStream("src-practice/fileinclasspath2.txt");
+		String data = IOUtils.toString(fis, "UTF-8");
+		assertEquals(EXPECTED_DATA2, data);
+	}
+
+	/**
+	 * Reading with BufferedReader
+	 * 
+	 * Note that readLine() will return null when the end of the file is reached.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_BufferedReader_thenCorrect() throws IOException {
 
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String currentLine = reader.readLine();
 		reader.close();
 
-		assertEquals(expected_value, currentLine);
+		assertEquals(EXPECTED_DATA2, currentLine);
 	}
 
+	/**
+	 * Reading from a File Using Java NIO.
+	 * 
+	 * Reading SMALL file
+	 * 
+	 * In JDK7, the NIO package was significantly updated. Letís look at an example
+	 * using the Files class and the readAllLines method. The readAllLines method
+	 * accepts a Path.
+	 * 
+	 * 
+	 * @throws IOException
+	 */
 	@Test
-	public void whenReadWithScanner_thenCorrect() throws IOException {
+	public void whenReadUsing_JavaNIO_smallFile_thenCorrect() throws IOException {
+
+		Path path = Paths.get(file);
+
+		// we can use the readAllBytes() method also to read binary data.
+		String currentLine = Files.readAllLines(path).get(0);
+
+		assertEquals(EXPECTED_DATA2, currentLine);
+	}
+
+	/**
+	 * Reading from a File Using Java NIO.
+	 * 
+	 * For reading BIG File - we can use the newBufferedReader() on BufferedReader
+	 * 
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_JavaNIO_bigFile_thenCorrect() throws IOException {
+
+		Path path = Paths.get(file);
+		BufferedReader reader = Files.newBufferedReader(path);
+		String line = reader.readLine();
+		assertEquals(EXPECTED_DATA2, line);
+	}
+
+	/**
+	 * Reading a File Using Files.lines()
+	 * 
+	 * JDK8 offers the lines() method inside the Files class. It returns a Stream of
+	 * String elements.
+	 * 
+	 * Letís look at an example of how to read data into bytes and decode it using
+	 * UTF-8 charset.
+	 * 
+	 * The following code reads the file using the new Files.lines():
+	 * 
+	 * 
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
+	@Test
+	public void whenReadUsing_Fileslines_thenCorrect() throws IOException, URISyntaxException {
+
+		Path path = Paths.get(getClass().getClassLoader().getResource("fileinclasspath2.txt").toURI());
+		Stream<String> lines = Files.lines(path);
+		String data = lines.collect(Collectors.joining("\n"));
+		/*
+		 * Using Stream with IO channels like file operations, we need to close the
+		 * stream explicitly using the close() method.
+		 */
+		lines.close();
+
+		assertEquals(EXPECTED_DATA2, data);
+	}
+
+	/**
+	 * Reading with Scanner - Note that the default delimiter is the whitespace, but
+	 * multiple delimiters can be used with a Scanner.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_Scanner_thenCorrect() throws IOException {
 		Scanner scanner = new Scanner(new File(file));
-		scanner.useDelimiter(" ");
+		/**
+		 * Note that the default delimiter is the whitespace, but multiple delimiters
+		 * can be used with a Scanner.
+		 */
+		// scanner.useDelimiter(" "); //implicitly
 
 		assertTrue(scanner.hasNext());
-		assertEquals("Hello", scanner.next());
-		assertEquals("world", scanner.next());
+		assertEquals("palin", scanner.next());
+		assertEquals("duzuw", scanner.next());
+		assertEquals("bolsyn", scanner.next());
 		// assertEquals(1, scanner.nextInt());
 
 		scanner.close();
 	}
 
+	/**
+	 * Reading with StreamTokenizer - This approach is useful for parsing an input
+	 * stream into tokens.
+	 * 
+	 * 
+	 * The tokenizer works by first figuring out what the next token is, String or
+	 * number. We do that by looking at the tokenizer.ttype field.
+	 * 
+	 * Then weíll read the actual token based on this type:
+	 * 
+	 * <pre>
+		tokenizer.nval ñ if the type was a number
+		tokenizer.sval ñ if the type was a String
+	 * </pre>
+	 * 
+	 * 
+	 * @throws IOException
+	 */
+
 	@Test
-	public void whenReadWithStreamTokenizer_thenCorrectTokens() throws IOException {
-		FileReader reader = new FileReader(file1);
+	public void whenReadUsing_StreamTokenizer_thenCorrectTokens() throws IOException {
+		FileReader reader = new FileReader(file);
 		StreamTokenizer tokenizer = new StreamTokenizer(reader);
 
 		// token 1
 		tokenizer.nextToken();
 		assertEquals(StreamTokenizer.TT_WORD, tokenizer.ttype);
-		assertEquals("Hello", tokenizer.sval);
+		assertEquals("palin", tokenizer.sval);
 
 		// token 2
 		tokenizer.nextToken();
-		assertEquals(StreamTokenizer.TT_NUMBER, tokenizer.ttype);
-		assertEquals(1, tokenizer.nval, 0.0000001);
+		assertEquals(StreamTokenizer.TT_WORD, tokenizer.ttype);
+		assertEquals("duzuw", tokenizer.sval);
 
 		// token 3
 		tokenizer.nextToken();
+		assertEquals(StreamTokenizer.TT_WORD, tokenizer.ttype);
+		assertEquals("bolsyn", tokenizer.sval);
+
+		// token 4
+		tokenizer.nextToken();
 		assertEquals(StreamTokenizer.TT_EOF, tokenizer.ttype);
+		assertEquals(null, tokenizer.sval);
+
+		// token 5
+		// tokenizer.nextToken();
+		// assertEquals(StreamTokenizer.TT_NUMBER, tokenizer.ttype);
+		// assertEquals(1, tokenizer.nval, 0.0000001);
+
+		// token 6
+		// tokenizer.nextToken();
+		// assertEquals(StreamTokenizer.TT_EOF, tokenizer.ttype);
+
 		reader.close();
 	}
 
 	/**
+	 * Reading with DataInputStream
+	 * 
+	 * We can use DataInputStream to read binary or primitive data types from a
+	 * file.
+	 * 
+	 * 
 	 * Java DataInputStream class allows an application to read primitive data from
 	 * the input stream in a machine-independent way.
 	 * 
@@ -133,18 +326,35 @@ public class FileReadOptions {
 	 * @throws IOException
 	 */
 	@Test
-	public void whenReadWithDataInputStream_thenCorrect() throws IOException {
-		String expectedValue = "world";
-		DataInputStream reader = new DataInputStream(new FileInputStream(file2));
-		String result = reader.readUTF();
+	public void whenReadUsing_DataInputStream_thenCorrect() throws IOException {
+		DataInputStream reader = new DataInputStream(new FileInputStream(file));
+		int nBytesToRead = reader.available();
+		// String result = reader.readUTF(); //EOF exception
+		String result = null;
+		if (nBytesToRead > 0) {
+			byte[] bytes = new byte[nBytesToRead];
+			reader.read(bytes);
+			result = new String(bytes);
+		}
+
 		reader.close();
 
-		assertEquals(expectedValue, result);
+		assertEquals(EXPECTED_DATA2, result);
 	}
 
+	/**
+	 * Reading with FileChannel
+	 * 
+	 * If we are reading a large file, FileChannel can be faster than standard IO.
+	 * 
+	 * The following code reads data bytes from the file using FileChannel and
+	 * RandomAccessFile:
+	 * 
+	 * 
+	 * @throws IOException
+	 */
 	@Test
-	public void whenReadWithFileChannel_thenCorrect() throws IOException {
-		String expected_value = "Hello world";
+	public void whenReadUsing_NIO_FileChannel_thenCorrect() throws IOException {
 		RandomAccessFile reader = new RandomAccessFile(file, "r");
 		FileChannel channel = reader.getChannel();
 
@@ -156,7 +366,7 @@ public class FileReadOptions {
 		channel.read(buff);
 		buff.flip();
 
-		assertEquals(expected_value, new String(buff.array()));
+		assertEquals(EXPECTED_DATA2, new String(buff.array()));
 		channel.close();
 		reader.close();
 	}
@@ -180,38 +390,122 @@ public class FileReadOptions {
 		return result;
 	}
 
+	/**
+	 * Reading a UTF-8 Encoded File
+	 * 
+	 * Now letís see how to read a UTF-8 encoded file using BufferedReader. In this
+	 * example, weíll read a file that contains Chinese characters:
+	 * 
+	 * @throws IOException
+	 */
 	@Test
-	public void whenReadUTFEncodedFile_thenCorrect() throws IOException {
-		String expected_value = "√©ÔøΩ‚Äô√ß¬©¬∫";
-		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file2), "UTF-8"));
+	public void whenReadUsing_UTF8EncodedFile_thenCorrect() throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 		String currentLine = reader.readLine();
 		reader.close();
 
-		assertEquals(expected_value, currentLine);
+		assertEquals(EXPECTED_DATA2, currentLine);
+	}
+
+	/**
+	 * Reading Content from URLConnection
+	 * 
+	 * 
+	 * To read content from a URL, we will use ì/î URL in our example:
+	 * 
+	 * There are also alternative ways of connecting to a URL. Here we used the URL
+	 * and URLConnection class available in the standard SDK.
+	 * 
+	 * @throws IOException
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_URLConnection_thenCorrect() throws IOException {
+
+		URL sahet = new URL("http://sahet.net/");
+		URLConnection yc = sahet.openConnection();
+		BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+		String inputLine;
+		boolean containsMisgin = false;
+		while ((inputLine = in.readLine()) != null) {
+			System.out.println("----->" + inputLine);
+			if (inputLine.contains("sahet")) {
+				containsMisgin = true;
+				break;
+			}
+		}
+		in.close();
+
+		assertTrue(containsMisgin);
+	}
+
+	/**
+	 * Reading Content from URL Reader
+	 * 
+	 * 
+	 * To read content from a URL, we will use ì/î URL in our example:
+	 * 
+	 * There are also alternative ways of connecting to a URL. Here we used the URL
+	 * and URLConnection class available in the standard SDK.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_URLReader_thenCorrect() throws IOException {
+		URL sahet = new URL("http://sahet.net/");
+		BufferedReader in = new BufferedReader(new InputStreamReader(sahet.openStream()));
+		boolean containsMisgin = false;
+
+		String inputLine;
+		while ((inputLine = in.readLine()) != null)
+			if (inputLine.contains("Azat") || inputLine.contains("Misgin")
+					|| !(inputLine.contains("href") || inputLine.contains("<p"))) {
+				System.out.println(inputLine);
+				containsMisgin = true;
+				break;
+			}
+
+		in.close();
+		assertTrue(containsMisgin);
+	}
+
+	/**
+	 * Reading a File from a JAR
+	 * 
+	 * To read a file which is located inside a JAR file, we will need a JAR with a
+	 * file inside it. For our example, we will read "IOUtils.class" or other
+	 * ìLICENSE.txtî from the ìcommons-io.jar î file:
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void whenReadUsing_JAR_thenCorrect() throws IOException {
+		Class clazz = FileUtils.class;
+		InputStream inputStream = clazz.getResourceAsStream("IOUtils.class");
+		String data = readFromInputStream(inputStream);
+
+		assertTrue(data.contains("Util"));
 	}
 
 	@Test
-	public void whenReadFileContentsIntoString_thenCorrect() throws IOException {
-		String expected_value = "Hello worldn";
+	public void whenReadUsing_FileContentsIntoString_thenCorrect() throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		StringBuilder builder = new StringBuilder();
 		String currentLine = reader.readLine();
 		while (currentLine != null) {
 			builder.append(currentLine);
-			builder.append("n");
+			builder.append("\n");
 			currentLine = reader.readLine();
 		}
 
 		reader.close();
-		assertEquals(expected_value, builder.toString());
+		assertEquals(EXPECTED_DATA, builder.toString());
 	}
 
 	@Test
-	public void givenUsingJava7_whenReadViaFiles_thenCorrect() throws IOException {
-		String expected = "Hello world";
-
+	public void whenReadUsing_Java7_whenReadViaFiles_thenCorrect() throws IOException { 
 		Path path = Paths.get(file);
-
 		byte[] readAllBytes = Files.readAllBytes(path);
 
 		String string = new String(readAllBytes);
@@ -345,8 +639,7 @@ public class FileReadOptions {
 
 	@Test
 	public void whenListFiles_thenCount() throws IOException {
-		File search = new File(
-				"C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io");
+		File search = new File("C:\\workspace-17\\java-in-deep");
 
 		String[] files = search.list();
 		for (String fn : files)
@@ -377,7 +670,7 @@ public class FileReadOptions {
 
 	@Test()
 	public void whenReadByURLConnection_thenCorrect() throws IOException {
-		String file3 = "file:///C:\\workspace\\_MainJava\\scjp(cx55-cx65)\\cx55\\and\\cx65\\ch6\\strings\\format\\parse\\io\\mgm.txt";
+		String file3 = "file:///C:\\workspace-17\\java-in-deep\\mgm.txt";
 
 		URL url = new URL(file3);// http://sahet.net/src/downloads/presentation.pdf
 		// file:///C:/MINE/kitaplar/Enterprise%20Java%20Beans%20%28Ejb%29%203%20In%20Action%20%5B2007%5D.pdf
@@ -483,6 +776,18 @@ public class FileReadOptions {
 		}
 
 	}
+
+	private String readFromInputStream(InputStream inputStream) throws IOException {
+		StringBuilder resultStringBuilder = new StringBuilder();
+		// InputStreamReader - is used as wrapper[adapter] between byte-to-char
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				resultStringBuilder.append(line).append("\n");
+			}
+		}
+		return resultStringBuilder.toString();
+	}
 }
 
 class Mgm {
@@ -541,4 +846,27 @@ class ReadWriteDemo {
 		}
 
 	}
+}
+
+class FilesLines {
+	private final static String filePath = "C:\\workspace-17";
+
+	public static void main(String[] args) {
+		// Java 7 Path.of
+		// explicitly
+		// Path path = Path.of("c:", filePath,
+		// "\\src\\main\\java\\features\\in\\java9\\jshell");
+		Path path = Path.of(filePath, "/java-in-deep/src-practical/net/sahet/programming/topics/FilesLines.java");
+
+		// Java 8 Files.lines
+		try (Stream<String> linesStream = Files.lines(path)) {
+			Predicate<String> hasArrow = s -> s.contains("==>");
+			Predicate<String> pathOf = s -> !s.contains("Path.of");
+			linesStream.dropWhile(Predicate.not(hasArrow)) // .skip(1)
+					.takeWhile(pathOf).forEach(System.out::println);
+		} catch (IOException e) {
+			System.err.println("Err" + e);
+		}
+	}
+
 }
