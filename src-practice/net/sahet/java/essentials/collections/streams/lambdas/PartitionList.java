@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.apache.commons.collections4.ListUtils;
+//import org.apache.commons.collections4.ListUtils;
 import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.Iterables;
@@ -66,7 +66,7 @@ public class PartitionList {
 	@Test
 	public void givenList_whenParitioningIntoNSublistsViaApacheCommonsCollections_thenCorrect() {
 		List<Integer> intList = List.of(1, 2, 3, 4, 5, 6, 7, 8);
-		List<List<Integer>> subSets = ListUtils.partition(intList, 3);
+		List<List<Integer>> subSets = null; // ListUtils.partition(intList, 3);
 
 		List<Integer> lastPartition = subSets.get(2);
 		List<Integer> expectedLastPartition = List.of(7, 8);

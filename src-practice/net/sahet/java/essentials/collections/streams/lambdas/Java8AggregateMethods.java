@@ -39,13 +39,7 @@ public class Java8AggregateMethods {
 	}
 }
 
-interface Vehicle {
-	public void move();
-
-	default void hoot() {
-		System.out.println("peep!");
-	}
-}
+ 
 
 @FunctionalInterface
 interface Function2<T, U, V> {

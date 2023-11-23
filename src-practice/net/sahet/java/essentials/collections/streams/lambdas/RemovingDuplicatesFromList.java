@@ -16,7 +16,7 @@ public class RemovingDuplicatesFromList {
 	/**
 	 * Remove Duplicates from a List Using Plain Java
 	 */
-s
+ 
 	@Test
 	public void givenListContainsDuplicates_whenRemovingDuplicatesWithPlainJava_thenCorrect() {
 		List<Integer> listWithDuplicates = Lists.newArrayList(0, 1, 2, 3, 0, 0);

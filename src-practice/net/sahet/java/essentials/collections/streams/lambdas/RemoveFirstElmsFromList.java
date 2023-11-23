@@ -30,7 +30,7 @@ Unlike that, LinkedList uses pointers meaning that each element points to the ne
 Hence, removing the first element means just changing the pointer to the first element. This operation
  always requires the same time not depending on the size of a list.
  * </pre>
- */s
+ */ 
 public class RemoveFirstElmsFromList {
 
 	private List<String> list = new ArrayList<>();

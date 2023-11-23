@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.collections4.ListUtils;
+//import org.apache.commons.collections4.ListUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.ImmutableList;
-s
+ 
 //https://www.baeldung.com/java-immutable-list
 public class ImmutableArrayList {
 
@@ -36,8 +36,8 @@ public class ImmutableArrayList {
 	public void givenUsingCommonsCollections_whenUnmodifiableListIsCreated_thenNotModifiable() {
 		Assertions.assertThrows(UnsupportedOperationException.class, () -> {
 			List<String> list = new ArrayList<String>(Arrays.asList("one", "two", "three"));
-			List<String> unmodifiableList = ListUtils.unmodifiableList(list);
-			unmodifiableList.add("four");
+			//List<String> unmodifiableList = ListUtils.unmodifiableList(list);
+			//unmodifiableList.add("four");
 		});
 	}
 

@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  *
  */
 public class CopyList {
-s
+ 
 	/**
 	 * Due to the fact that we're copying reference here and not cloning the
 	 * objects, every amends made in one element will affect both lists.

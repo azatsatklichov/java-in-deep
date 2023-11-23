@@ -30,5 +30,5 @@ public class IntersectionOfTwoLists {
 
 		assertEquals(commonElements, result);
 		assertFalse(list.contains("cat"));
-	}s
+	} 
 }

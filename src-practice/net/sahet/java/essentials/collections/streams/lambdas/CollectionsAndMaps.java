@@ -101,11 +101,8 @@ public class CollectionsAndMaps {
 
 }
 
-
-
-
 //https://www.baeldung.com/java-collections
-class JavaCollections {s
+class JavaCollections {
 	public static void main(String[] args) {
 
 		System.out.println("Multi Dimensional ArrayList");
@@ -167,16 +164,16 @@ class JavaCollections {s
 		space.get(0).get(0).add(1, "Red");
 	}
 
-	@Test 
+	@Test
 	public void whenIterateOverItAndTryToRemoveElement_thenShouldThrowException() {
 
 		Assertions.assertThrows(UnsupportedOperationException.class, () -> {
-		CopyOnWriteArrayList<Integer> numbers = new CopyOnWriteArrayList<>(new Integer[] { 1, 3, 5, 8 });
+			CopyOnWriteArrayList<Integer> numbers = new CopyOnWriteArrayList<>(new Integer[] { 1, 3, 5, 8 });
 
-		Iterator<Integer> iterator = numbers.iterator();
-		while (iterator.hasNext()) {
-			iterator.remove();
-		}
-		 });
+			Iterator<Integer> iterator = numbers.iterator();
+			while (iterator.hasNext()) {
+				iterator.remove();
+			}
+		});
 	}
 }

@@ -45,7 +45,7 @@ Therefore, this is taken care of in the design of red-black trees. For every ins
  * </pre>
  */
 public class TreeMapInJava {
-s
+ 
 	@Test
 	public void givenTreeMap_whenOrdersEntriesNaturally_thenCorrect() {
 		TreeMap<Integer, String> map = new TreeMap<>();

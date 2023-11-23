@@ -11,9 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.PredicateUtils;
+ 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +26,7 @@ import com.google.common.collect.Lists;
  *
  */
 public class RemoveNullsOrElmsFromList {
-s
+ 
 	/**
 	 * Remove Nulls from a List Using Google Guava
 	 */
@@ -55,7 +53,7 @@ s
 	@Test
 	public void givenListContainsNulls_whenRemovingNullsWithCommonsCollections_thenCorrect() {
 		List<Integer> list = Lists.newArrayList(null, 1, 2, null, 3, null);
-		CollectionUtils.filter(list, PredicateUtils.notNullPredicate());
+		//CollectionUtils.filter(list, PredicateUtils.notNullPredicate());
 
 		assertEquals(list.size(), 3);
 	}

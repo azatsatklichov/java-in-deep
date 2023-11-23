@@ -13,13 +13,12 @@ import java.util.LinkedList;
  * 
  * java.util.LinkedList java.util.ArrayDeque
  *
- *
- * http://tutorials.jenkov.com/java-collections/deque.html
+ * 
  */
 public class DequeDemo {
 
 	public static void main(String[] args) {
-s
+ 
 		Deque deque = new LinkedList();
 		deque.add("element 1");
 		deque.addFirst("element 1");

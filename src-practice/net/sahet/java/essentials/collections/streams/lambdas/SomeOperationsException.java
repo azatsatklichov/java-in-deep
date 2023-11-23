@@ -10,7 +10,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-s
 /**
  * In this quick tutorial, we'll discuss a common Exception that can occur when
  * working with some the API of most List implementations – the
