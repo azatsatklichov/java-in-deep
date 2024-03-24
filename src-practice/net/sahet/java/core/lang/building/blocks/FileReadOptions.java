@@ -223,6 +223,43 @@ public class FileReadOptions {
 
 		assertEquals(EXPECTED_DATA2, data);
 	}
+	
+	/**
+	 * 
+	 * Reading Files via Java 11
+	 * 
+	 * or
+	 * 
+	 * If you need to read a file from one end to the other you can use a
+	 * FileInputStream or a FileReader depending on whether you want to read the
+	 * file as binary or textual data.
+	 * 
+	 * If you need to jump around the file and read only parts of it from here and
+	 * there, you can use a RandomAccessFile.
+	 * 
+	 * 
+	 * Writing File via Java 11
+	 * 
+	 * or
+	 * 
+	 * If you need to write a file from one end to the other you can use a
+	 * FileOutputStream or a FileWriter depending on whether you need to write
+	 * binary data or characters. If you need to skip around a file and write to it
+	 * in various places, for instance appending to the end of the file, you can use
+	 * a RandomAccessFile.
+	 * 
+	 * @throws IOException
+	 * 
+	 * 
+	 */
+	@Test
+	public void whenReadUsing_FilesreadString_thenCorrect() throws IOException {
+
+		//Path path = Path.of("C:\\workspace-17\\java-in-deep\\src-practice\\net\\sahet\\java\\core\\lang\\blocks");
+		var data = Files.readString(Path.of("words.txt"));		
+		System.out.println(data);
+		Files.writeString(Path.of("words_fazilSay.txt"), data); 
+	}
 
 	/**
 	 * MGM aydypdy SMALL file diyip

@@ -33,6 +33,14 @@ public class Fibonacci {
 		fiboByJava8Streams(15).forEach(x -> {
 			System.out.print(x + " ");
 		});
+		
+		// Fibonacci with iterate
+		Stream.iterate(new int[] { 0, 1 }, t -> new int[] { t[1], t[0] + t[1] }).limit(10)
+				.forEach(t -> System.out.printf("(%d, %d)", t[0], t[1]));
+		System.out.println();
+
+		Stream.iterate(new int[] { 0, 1 }, t -> new int[] { t[1], t[0] + t[1] }).limit(10).map(t -> t[0])
+				.forEach(System.out::println);
 
 	}
 

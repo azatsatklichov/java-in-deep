@@ -66,7 +66,7 @@ public class FileWriteOptions {
 
 	@Test
 	public void whenWriteUsing_BufferedWritter_thenCorrect() throws IOException {
-		String str = "Seni Yaradan sylasyn, ... basgasy bos";
+		String str = "Seni ylasyn, ... ";
 		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 		writer.write(str);
 		File f = new File(file);
