@@ -7,6 +7,24 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src-algo" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src-dp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code/net" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code/net/sahet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code/net/sahet/naming" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code/net/sahet/naming/before" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clean-code/net/sahet/naming/then" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths/net" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths/net/sahet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths/net/sahet/algorithms" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths/net/sahet/algorithms/arrays" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-algoriths/net/sahet/algorithms/computation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice/net" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/nio2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/programming" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

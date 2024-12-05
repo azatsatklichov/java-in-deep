@@ -10,7 +10,11 @@ Different kind of paradigms in programming like: functional, procedural, declara
 
 ## Algorithmic Solutions 
 Some algorithmic tasks with basic or more complex solutions 
-    
+
+
+## Clean Code Principles  
+Clean Code Principles - architectural design, coding, refactoring and testing best practices with examples in JAVA, JS/TS or others.
+
  
 ## more ...
 
