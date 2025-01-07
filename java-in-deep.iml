@@ -25,6 +25,15 @@
       <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/nio2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src-practice/net/sahet/programming" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet/java/best" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet/java/best/practices" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet/java/best/practices/before" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-clean-code/net/sahet/java/best/practices/later" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src-modern-java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
